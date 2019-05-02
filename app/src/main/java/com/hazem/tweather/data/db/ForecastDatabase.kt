@@ -1,9 +1,7 @@
 package com.hazem.tweather.data.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.hazem.tweather.data.db.entity.CurrentWeatherEntry
 import com.hazem.tweather.data.db.entity.WeatherLocation
 
@@ -11,10 +9,11 @@ import com.hazem.tweather.data.db.entity.WeatherLocation
     entities = [CurrentWeatherEntry::class, WeatherLocation::class],
     version = 2
 )
-
+@TypeConverters(LocalDateConverter::class)
 abstract class ForecastDatabase : RoomDatabase() {
 
     abstract fun currentWeatherDao(): CurrentWeatherDao
+    abstract fun futureWeatherDao(): FutureWeatherDao
     abstract fun weatherLocationDao(): WeatherLocationDao
 
     companion object {

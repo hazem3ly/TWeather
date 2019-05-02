@@ -1,4 +1,4 @@
-package com.hazem.tweather.data.db.unitlocalized
+package com.hazem.tweather.data.db.unitlocalized.current
 
 interface UnitSpecificCurrentWeatherEntry  {
     val temperature: Double

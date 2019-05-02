@@ -2,7 +2,7 @@ package com.hazem.tweather.data.repository
 
 import androidx.lifecycle.LiveData
 import com.hazem.tweather.data.db.entity.WeatherLocation
-import com.hazem.tweather.data.db.unitlocalized.UnitSpecificCurrentWeatherEntry
+import com.hazem.tweather.data.db.unitlocalized.current.UnitSpecificCurrentWeatherEntry
 
 interface ForecastRepository {
     suspend fun getCurrentWeather(metric: Boolean): LiveData<out UnitSpecificCurrentWeatherEntry>

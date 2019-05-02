@@ -1,6 +1,7 @@
 package com.hazem.tweather.data.network
 
 import com.hazem.tweather.data.network.responce.CurrentWeatherResponse
+import com.hazem.tweather.data.network.responce.FutureWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -24,6 +25,14 @@ interface ApixuWeatherApiService {
         @Query("q") location: String,
         @Query("lang") language: String = "en"
     ): Deferred<CurrentWeatherResponse>
+
+    // https://api.apixu.com/v1/forecast.json?key=89e8bd89085b41b7a4b142029180210&q=Los%20Angeles&days=1
+    @GET("forecast.json")
+    fun getFutureWeather(
+        @Query("q") location: String,
+        @Query("lang") language: String = "en",
+        @Query("days") days: Int
+    ): Deferred<FutureWeatherResponse>
 
     companion object {
         operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ApixuWeatherApiService {

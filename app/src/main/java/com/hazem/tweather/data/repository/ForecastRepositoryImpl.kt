@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.hazem.tweather.data.db.CurrentWeatherDao
 import com.hazem.tweather.data.db.WeatherLocationDao
 import com.hazem.tweather.data.db.entity.WeatherLocation
-import com.hazem.tweather.data.db.unitlocalized.UnitSpecificCurrentWeatherEntry
+import com.hazem.tweather.data.db.unitlocalized.current.UnitSpecificCurrentWeatherEntry
 import com.hazem.tweather.data.network.WeatherNetworkDataSource
 import com.hazem.tweather.data.network.responce.CurrentWeatherResponse
 import com.hazem.tweather.data.provider.LocationProvider
