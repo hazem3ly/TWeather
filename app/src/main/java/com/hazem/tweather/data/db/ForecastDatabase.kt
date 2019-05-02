@@ -5,19 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.hazem.tweather.data.db.entity.CurrentWeatherEntry
+import com.hazem.tweather.data.db.entity.WeatherLocation
 
 @Database(
-    entities = [CurrentWeatherEntry::class],
-    version = 1
+    entities = [CurrentWeatherEntry::class, WeatherLocation::class],
+    version = 2
 )
 
-abstract class ForcastDatabase : RoomDatabase() {
+abstract class ForecastDatabase : RoomDatabase() {
 
     abstract fun currentWeatherDao(): CurrentWeatherDao
+    abstract fun weatherLocationDao(): WeatherLocationDao
 
     companion object {
         @Volatile
-        private var inistance: ForcastDatabase? = null
+        private var inistance: ForecastDatabase? = null
 
         private val LOCK = Any()
 
@@ -27,8 +29,8 @@ abstract class ForcastDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
-            ForcastDatabase::class.java,
-            "forcast.db"
+            ForecastDatabase::class.java,
+            "forecast.db"
         ).build()
     }
 

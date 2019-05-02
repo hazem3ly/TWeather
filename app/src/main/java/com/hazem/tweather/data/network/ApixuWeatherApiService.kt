@@ -1,6 +1,6 @@
 package com.hazem.tweather.data.network
 
-import com.hazem.tweather.data.network.responce.CurrentWeatherResponce
+import com.hazem.tweather.data.network.responce.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.concurrent.TimeUnit
 
 const val API_KEY = "887395bb0a994128ab4141912182712"
 const val BASE_URL = "https://api.apixu.com/v1/"
@@ -22,7 +23,7 @@ interface ApixuWeatherApiService {
     fun getCurrentWeather(
         @Query("q") location: String,
         @Query("lang") language: String = "en"
-    ): Deferred<CurrentWeatherResponce>
+    ): Deferred<CurrentWeatherResponse>
 
     companion object {
         operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ApixuWeatherApiService {
@@ -43,6 +44,9 @@ interface ApixuWeatherApiService {
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
                 .addInterceptor(connectivityInterceptor)
+                .connectTimeout(5, TimeUnit.MINUTES) // connect timeout
+                .writeTimeout(5, TimeUnit.MINUTES) // write timeout
+                .readTimeout(5, TimeUnit.MINUTES) // read timeout
                 .build()
 
             return Retrofit.Builder()

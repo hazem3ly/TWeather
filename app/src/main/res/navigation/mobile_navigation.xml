@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/currentWeatherFragment"
         android:name="com.hazem.tweather.ui.weather.current.CurrentWeatherFragment"
-        android:label="current_weather_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/current_weather_fragment" />
     <fragment
         android:id="@+id/futureDetailsWeatherFragment"
         android:name="com.hazem.tweather.ui.weather.future.detail.FutureDetailsWeatherFragment"
-        android:label="future_details_weather_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/future_details_weather_fragment" />
     <fragment
         android:id="@+id/futureListWeatherFragment"
         android:name="com.hazem.tweather.ui.weather.future.list.FutureListWeatherFragment"
-        android:label="future_list_weather_fragment"
+        android:label="@string/app_name"
         tools:layout="@layout/future_list_weather_fragment" />
     <fragment
         android:id="@+id/settingsFragment"
