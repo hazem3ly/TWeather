@@ -1,4 +1,4 @@
-package com.hazem.tweather.data.db.unitlocalized.future
+package com.hazem.tweather.data.db.unitlocalized.future.list
 
 import org.threeten.bp.LocalDate
 
