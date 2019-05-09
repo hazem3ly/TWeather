@@ -48,6 +48,11 @@ class CurrentWeatherFragment : ScopedFragment(), KodeinAware {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        bindUi()
+    }
+
     private fun bindUi() = launch {
         val currentWeather = viewModel.weather.await()
         val currentWeatherLocation = viewModel.weatherLocation.await()

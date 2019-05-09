@@ -47,6 +47,10 @@ class FutureListWeatherFragment : ScopedFragment(), KodeinAware {
         bindUI()
     }
 
+    override fun onResume() {
+        super.onResume()
+        bindUI()
+    }
     private fun bindUI() = launch(Dispatchers.Main) {
         val futureWeatherEntries = viewModel.weatherEntries.await()
         val weatherLocation = viewModel.weatherLocation.await()

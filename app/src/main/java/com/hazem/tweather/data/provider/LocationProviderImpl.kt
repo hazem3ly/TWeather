@@ -47,7 +47,7 @@ class LocationProviderImpl(
 
     private suspend fun hasDeviceLocationChanged(lastWeatherLocation: WeatherLocation): Boolean {
         if (!isUsingDeviceLocation())
-            return false
+            return hasCustomLocationChanged(lastWeatherLocation)
 
         val deviceLocation = getLastDeviceLocation().await()
             ?: return false

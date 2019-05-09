@@ -1,7 +1,7 @@
 package com.hazem.tweather
 
-import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDexApplication
 import androidx.preference.PreferenceManager
 import com.google.android.gms.location.LocationServices
 import com.hazem.tweather.data.db.ForecastDatabase
@@ -22,7 +22,7 @@ import org.kodein.di.android.x.androidXModule
 import org.kodein.di.generic.*
 import org.threeten.bp.LocalDate
 
-class ForecastApplication : Application(), KodeinAware {
+class ForecastApplication : MultiDexApplication(), KodeinAware {
     override val kodein = Kodein.lazy {
         import(androidXModule(this@ForecastApplication))
 
