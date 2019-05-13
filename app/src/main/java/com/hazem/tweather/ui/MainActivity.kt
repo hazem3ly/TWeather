@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 bindLocationManager()
             else
-                Toast.makeText(this, "Please, set location manually in settings", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.location_needed), Toast.LENGTH_LONG).show()
         }
     }
 }

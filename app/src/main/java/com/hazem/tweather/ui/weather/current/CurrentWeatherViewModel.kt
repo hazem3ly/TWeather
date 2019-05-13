@@ -1,9 +1,7 @@
 package com.hazem.tweather.ui.weather.current
 
-import androidx.lifecycle.ViewModel
 import com.hazem.tweather.data.provider.UnitProvider
 import com.hazem.tweather.data.repository.ForecastRepository
-import com.hazem.tweather.internal.UnitSystem
 import com.hazem.tweather.internal.lazyDeferred
 import com.hazem.tweather.ui.base.WeatherViewModel
 

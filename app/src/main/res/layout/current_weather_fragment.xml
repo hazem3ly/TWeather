@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:constraint_referenced_ids="progressBar_loading, textView_loading"
+        app:constraint_referenced_ids="progressBar_loading,textView_loading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Loading"
+        android:text="@string/loading"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +71,7 @@
         tools:text="Patchy rain possible" />
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/imageView_condition_icon"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -34,5 +34,5 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.hazem.tweather.ui.settings.Settings"
-        android:label="Settings" />
+        android:label="@string/settings" />
 </navigation>

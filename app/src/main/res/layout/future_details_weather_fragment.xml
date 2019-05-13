@@ -29,6 +29,7 @@
         tools:text="25.0°C" />
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/imageView_condition_icon"
         android:layout_width="0dp"
         android:layout_height="0dp"

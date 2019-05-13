@@ -33,9 +33,11 @@ class FutureWeatherItem(
     }
 
     private fun ViewHolder.updateTemperature() {
-        val unitAbbreviation = if (weatherEntry is MetricSimpleFutureWeatherEntry) "°C"
-        else "°F"
-        textView_temperature.text = "${weatherEntry.avgTemperature}$unitAbbreviation"
+        val unitAbbreviation = if (weatherEntry is MetricSimpleFutureWeatherEntry)
+            this.itemView.context.getString(R.string.celsius) else this.itemView.context.getString(R.string.fahrenheit)
+
+        textView_temperature.text =
+            this.itemView.context.getString(R.string.temperature, weatherEntry.avgTemperature.toString(), unitAbbreviation)
     }
 
     private fun ViewHolder.updateConditionImage() {

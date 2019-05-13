@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TWeather</string>
+    <string name="settings">الإعدادات</string>
+    <string name="today">اليوم</string>
+    <string name="temperature">%1$s %2$s</string>
+    <string name="uv">اشاعة فوق بنفسيجية: %1$s</string>
+    <string name="feels_like">تشعر بانها %1$s %2$s</string>
+    <string name="min_max_temperature">من: %1$s %2$s,إلى: %3$s %4$s</string>
+    <string name="precipitation">سرعة: %1$s %2$s</string>
+    <string name="wind">الرياح: %1$s, %2$s %3$s</string>
+    <string name="wind_speed">سرعة الرياح: %1$s %2$s</string>
+    <string name="visibility">الرؤية: %1$s %2$s</string>
+    <string name="celsius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="mm">مم</string>
+    <string name="inch">انش</string>
+    <string name="kph">كم/ساعة</string>
+    <string name="mph">ميل/ساعة</string>
+    <string name="km">كم</string>
+    <string name="mi">ميل</string>
+    <string name="next_week">الاسبوع القادم</string>
+    <string name="metric">بالمتر</string>
+    <string name="imperial">بالميل</string>
+    <string name="location_needed">فضلا قم بتشغيل محدد الموقع</string>
+    <string name="loading">جارى التحميل</string>
+    <string name="_7_days">7 ايام</string>
+    <string name="use_device_location">استخدام موقع الهاتف</string>
+    <string name="use_device_location_subtitle">السماح للبرنامج باستخدام موقع الجهاز</string>
+    <string name="location">الموقع</string>
+    <string name="location_subtitle">الموقع الذى سنعرض لة درجات الحرارة</string>
+
+</resources>

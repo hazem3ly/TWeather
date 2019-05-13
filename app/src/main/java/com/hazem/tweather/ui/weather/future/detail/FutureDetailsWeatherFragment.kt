@@ -1,14 +1,12 @@
 package com.hazem.tweather.ui.weather.future.detail
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-
+import androidx.lifecycle.ViewModelProviders
 import com.hazem.tweather.R
 import com.hazem.tweather.data.db.LocalDateConverter
 import com.hazem.tweather.internal.DateNotFoundException
@@ -52,6 +50,7 @@ class FutureDetailsWeatherFragment : ScopedFragment(), KodeinAware {
 
         bindUI()
     }
+
     private fun bindUI() = launch(Dispatchers.Main) {
         val futureWeather = viewModel.weather.await()
         val weatherLocation = viewModel.weatherLocation.await()
@@ -65,8 +64,10 @@ class FutureDetailsWeatherFragment : ScopedFragment(), KodeinAware {
             if (weatherEntry == null) return@Observer
 
             updateDate(weatherEntry.date)
-            updateTemperatures(weatherEntry.avgTemperature,
-                weatherEntry.minTemperature, weatherEntry.maxTemperature)
+            updateTemperatures(
+                weatherEntry.avgTemperature,
+                weatherEntry.minTemperature, weatherEntry.maxTemperature
+            )
             updateCondition(weatherEntry.conditionText)
             updatePrecipitation(weatherEntry.totalPrecipitation)
             updateWindSpeed(weatherEntry.maxWindSpeed)
@@ -78,6 +79,7 @@ class FutureDetailsWeatherFragment : ScopedFragment(), KodeinAware {
                 .into(imageView_condition_icon)
         })
     }
+
     private fun chooseLocalizedUnitAbbreviation(metric: String, imperial: String): String {
         return if (viewModel.isMetricUnit) metric else imperial
     }
@@ -85,35 +87,40 @@ class FutureDetailsWeatherFragment : ScopedFragment(), KodeinAware {
     private fun updateLocation(location: String) {
         (activity as? AppCompatActivity)?.supportActionBar?.title = location
     }
+
     private fun updateDate(date: LocalDate) {
         (activity as? AppCompatActivity)?.supportActionBar?.subtitle =
             date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM))
     }
+
     private fun updateTemperatures(temperature: Double, min: Double, max: Double) {
-        val unitAbbreviation = chooseLocalizedUnitAbbreviation("°C", "°F")
-        textView_temperature.text = "$temperature$unitAbbreviation"
-        textView_min_max_temperature.text = "Min: $min$unitAbbreviation, Max: $max$unitAbbreviation"
+        val unitAbbreviation =
+            chooseLocalizedUnitAbbreviation(getString(R.string.celsius), getString(R.string.fahrenheit))
+        textView_temperature.text = getString(R.string.temperature, temperature.toString(), unitAbbreviation)
+        textView_min_max_temperature.text =
+            getString(R.string.min_max_temperature, min.toString(), unitAbbreviation, max.toString(), unitAbbreviation)
     }
+
     private fun updateCondition(condition: String) {
         textView_condition.text = condition
     }
 
     private fun updatePrecipitation(precipitationVolume: Double) {
-        val unitAbbreviation = chooseLocalizedUnitAbbreviation("mm", "in")
-        textView_precipitation.text = "Precipitation: $precipitationVolume $unitAbbreviation"
+        val unitAbbreviation = chooseLocalizedUnitAbbreviation(getString(R.string.mm), getString(R.string.inch))
+        textView_precipitation.text = getString(R.string.precipitation, precipitationVolume.toString(), unitAbbreviation)
     }
 
     private fun updateWindSpeed(windSpeed: Double) {
-        val unitAbbreviation = chooseLocalizedUnitAbbreviation("kph", "mph")
-        textView_wind.text = "Wind speed: $windSpeed $unitAbbreviation"
+        val unitAbbreviation = chooseLocalizedUnitAbbreviation(getString(R.string.kph), getString(R.string.mph))
+        textView_wind.text = getString(R.string.wind_speed, windSpeed.toString(), unitAbbreviation)
     }
 
     private fun updateVisibility(visibilityDistance: Double) {
-        val unitAbbreviation = chooseLocalizedUnitAbbreviation("km", "mi.")
-        textView_visibility.text = "Visibility: $visibilityDistance $unitAbbreviation"
+        val unitAbbreviation = chooseLocalizedUnitAbbreviation(getString(R.string.km), getString(R.string.mi))
+        textView_visibility.text = getString(R.string.visibility, visibilityDistance.toString(), unitAbbreviation)
     }
 
     private fun updateUv(uv: Double) {
-        textView_uv.text = "UV: $uv"
+        textView_uv.text = getString(R.string.uv,uv.toString())
     }
 }

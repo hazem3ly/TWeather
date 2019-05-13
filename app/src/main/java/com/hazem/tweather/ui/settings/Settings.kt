@@ -12,7 +12,7 @@ class Settings : PreferenceFragmentCompat() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (activity as? AppCompatActivity)?.supportActionBar?.title = "Settings"
+        (activity as? AppCompatActivity)?.supportActionBar?.title = getString(R.string.settings)
         (activity as? AppCompatActivity)?.supportActionBar?.subtitle = null
     }
 }

@@ -13,6 +13,6 @@ class UnitProviderImpl(context: Context) : PreferenceProvider(context), UnitProv
 
     override fun getUnitSystem(): UnitSystem {
         val selectedName = preference.getString(UNIT_SYSTEM, UnitSystem.METRIC.name)
-        return UnitSystem.valueOf(selectedName!!)
+        return UnitSystem.valueOf(selectedName!!.toUpperCase())
     }
 }
